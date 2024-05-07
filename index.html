@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Global styles */
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            margin-top: 120px; /* Adjusted margin-top to make space for the header */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #303f9f;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header .logo {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        header nav {
+            text-align: center;
+        }
+        header nav ul {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+        header nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        header nav ul li a:hover {
+            color: #9575cd;
+        }
+
+        /* Banner Section styles */
+        #banner {
+            background-color: #9575cd;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 80px;
+            color: #fff;
+        }
+        #banner h1 {
+            font-size: 3em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Quote styles */
+        #quote-container {
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+            background-color: #ffc107; /* Changed background color */
+            padding: 20px;
+            border-radius: 5px;
+            color: #333; /* Changed font color */
+            text-align: center; /* Centering the quote */
+            z-index: 999;
+        }
+        #quote-container p {
+            font-size: 1.5em; /* Increased font size */
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif; /* Changed font family */
+            animation: moveHorizontal 20s linear infinite;
+            animation-delay: 5s;
+            animation-fill-mode: forwards;
+            font-style: italic;
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Animated scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        /* About Us Section */
+        #about {
+            background-color: #64b5f6;
+        }
+
+        /* Academics Section */
+        #academics {
+            background-color: #81c784;
+        }
+
+        /* Admissions Section */
+        #admissions {
+            background-color: #ffb74d;
+        }
+
+        /* News & Events Section */
+        #news {
+            background-color: #4db6ac;
+        }
+
+        /* Contact Us Section */
+        #contact {
+            background-color: #90a4ae;
+            color: #fff;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            font-size: 1.2em;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #303f9f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background-color: #1a237e;
+        }
+
+        /* Icon styles */
+        .icon {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        /* Animation for icons */
+        .icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Quote Section -->
+    <section id="quote">
+        <div class="container">
+            <div id="quote-container">
+                <p id="daily-quote">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">SI International</h1>
+            <nav>
+                <ul>
+                    <li><a href="#banner">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#news">News & Events</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section id="banner">
+        <div class="container">
+            <h1>Welcome to SI International</h1>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>SI International is a leading educational institution committed to providing high-quality education to students from diverse backgrounds. With a team of dedicated educators and state-of-the-art facilities, we strive to nurture the intellectual, emotional, and social growth of our students.</p>
+            <a href="#contact" class="btn">Learn More <span class="icon">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics">
+        <div class="container">
+            <h2>Academics</h2>
+            <p>Our academic programs are designed to challenge students academically while fostering a love for learning. From rigorous coursework to hands-on learning experiences, we aim to equip students with the skills and knowledge they need to succeed in an ever-changing world.</p>
+            <a href="#admissions" class="btn">Explore Programs <span class="icon">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions">
+        <div class="container">
+            <h2>Admissions</h2>
+            <p>Admissions at SI International are competitive yet inclusive. We welcome students from diverse backgrounds who demonstrate a passion for learning and a commitment to personal growth. To learn more about our admissions process and requirements, please contact our admissions office.</p>
+            <a href="#contact" class="btn">Apply Now <span class="icon">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section id="news">
+        <div class="container">
+            <h2>News & Events</h2>
+            <p>Stay up-to-date with the latest news and events at SI International. From academic achievements to extracurricular activities, there's always something exciting happening on campus. Check back regularly for updates!</p>
+            <a href="#contact" class="btn">See All Events <span class="icon">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to learn more about SI International? Feel free to reach out to us! Our friendly staff are here to assist you with any inquiries you may have.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SI International</p>
+            <!-- Add social media links here -->
+        </div>
+    </footer>
+
+    <!-- JavaScript for updating daily quote -->
+    <script>
+        // Function to update the daily quote (replace with your logic)
+        function updateQuote() {
+            // Array of daily quotes
+            var quotes = [
+                "Education is the most powerful weapon which you can use to change the world. - Nelson Mandela",
+                "The function of education is to teach one to think intensively and to think critically. Intelligence plus character - that is the goal of true education. - Martin Luther King Jr.",
+                "The beautiful thing about learning is that no one can take it away from you. - B.B. King",
+                "The only source of knowledge is experience. - Albert Einstein",
+                "Education is not preparation for life; education is life itself. - John Dewey",
+                "The mind is not a vessel to be filled, but a fire to be kindled. - Plutarch",
+                "Learning never exhausts the mind. - Leonardo da Vinci",
+                "Education is the key to unlocking the world, a passport to freedom. - Oprah Winfrey",
+                "The beautiful thing about learning is nobody can take it away from you. - B.B. King",
+                "Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X"
+                // Add more quotes here
+            ];
+
+            // Get a random quote from the array
+            var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+            // Update the quote element with the new quote
+            document.getElementById('daily-quote').textContent = randomQuote;
+        }
+
+        // Call the updateQuote function on page load
+        window.onload = updateQuote;
+    </script>
+</body>
+</html>
