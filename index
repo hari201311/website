@@ -3,412 +3,742 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARI DARSH SCHOOL AND JUNIOR COLLEGE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <title>HARI DARSH SCHOOL - Innovate. Learn. Succeed.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        /* Reset and global styles */
-        *, *::before, *::after {
-            box-sizing: border-box;
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #4CAF50;
+            --accent-color: #FF6B6B;
+            --text-color: #333;
+            --light-bg: #F8F9FA;
+            --dark-bg: #2C3E50;
         }
-        body, h1, h2, h3, p, ul, li {
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
         }
+
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
         }
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header styles */
+        /* Header Styles */
         header {
-            background-color: #303f9f;
-            color: #fff;
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 20px 0;
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             z-index: 1000;
+            transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
         }
+
         header.scrolled {
-            background-color: rgba(48, 63, 159, 0.9);
+            padding: 10px 0;
         }
-        header .logo {
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 2em;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        header nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        header nav ul li {
-            margin: 0 15px;
-        }
-        header nav ul li a {
-            color: #fff;
+            color: var(--primary-color);
             text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
             position: relative;
         }
-        header nav ul li a::after {
+
+        nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 100%;
             height: 2px;
-            background-color: #fff;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
-        header nav ul li a:hover::after {
+
+        nav ul li a:hover::after {
             transform: scaleX(1);
         }
 
-        /* Banner Section styles */
-        #banner {
-            background-image: url('/api/placeholder/1200/400');
-            background-size: cover;
-            background-position: center;
-            padding: 150px 0;
-            text-align: center;
-            color: #fff;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             position: relative;
+            overflow: hidden;
         }
-        #banner::before {
+
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('/api/placeholder/1000/1000');
+            background-repeat: no-repeat;
+            background-size: 50% 50%, 50% 50%;
+            background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+            animation: rotate 20s linear infinite;
+            opacity: 0.1;
         }
-        #banner h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+
+        .hero-content {
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-align: center;
+            color: #fff;
+            animation: fadeInUp 1s ease-out;
         }
 
-        /* Quote styles */
-        #quote-container {
-            background-color: #ffc107;
-            padding: 20px;
-            border-radius: 5px;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        #quote-container p {
-            font-size: 1.3em;
-            font-family: 'Lora', serif;
-            font-style: italic;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Section styles */
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #303f9f;
-            font-weight: 700;
-        }
-        section p {
-            font-size: 1.1em;
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
             margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
             text-align: center;
-            color: #666;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* About Us Section */
-        #about {
-            background-color: #e8eaf6;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        /* Academics Section */
-        #academics {
-            background-color: #e8f5e9;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 20px auto 0;
         }
 
-        /* Admissions Section */
-        #admissions {
-            background-color: #fff3e0;
-        }
-
-        /* News & Events Section */
-        #news {
-            background-color: #e0f2f1;
-        }
-
-        /* Contact Us Section */
-        #contact {
-            background-color: #eceff1;
-        }
-        
-        /* Gallery Section */
-        #gallery {
-            background-color: #f3e5f5;
-        }
-        .gallery-container {
+        /* About Section */
+        .about-content {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
         }
-        .gallery-item {
-            flex: 0 0 calc(33.333% - 20px);
-            max-width: calc(33.333% - 20px);
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+            animation: slideInLeft 1s ease-out;
         }
-        .gallery-item:hover {
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-image:hover img {
             transform: scale(1.05);
         }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        /* Footer styles */
-        footer {
-            background-color: #303f9f;
-            color: #fff;
-            text-align: center;
-            padding: 40px 0;
+        .program-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
         }
-        footer p {
-            font-size: 1.1em;
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-card-content {
+            padding: 30px;
+        }
+
+        .program-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+
+        .program-card p {
+            color: var(--text-color);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* Events Section */
+        .events-list {
+            list-style-type: none;
+        }
+
+        .event-item {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .event-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-date {
+            flex: 0 0 100px;
+            height: 100px;
+            background-color: var(--primary-color);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-right: 30px;
+        }
+
+        .event-date .day {
+            font-size: 2em;
+        }
+
+        .event-date .month {
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+
+        .event-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
-        .social-icons {
-            margin-top: 20px;
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-color);
         }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+        }
+
         .social-icons a {
             color: #fff;
             font-size: 1.5em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #ffc107;
-        }
-
-        /* Button styles */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #303f9f;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
+            margin-right: 15px;
             transition: all 0.3s ease;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid #303f9f;
-        }
-        .btn:hover {
-            background-color: transparent;
-            color: #303f9f;
         }
 
-        /* Responsive design */
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header .logo {
-                font-size: 1.5em;
+            .header-content {
+                flex-direction: column;
+                align-items: center;
             }
-            header nav ul li {
-                margin: 5px 10px;
-            }
-            #banner h1 {
-                font-size: 2.5em;
-            }
-            section h2 {
-                font-size: 2em;
-            }
-            .gallery-item {
-                flex: 0 0 calc(50% - 20px);
-                max-width: calc(50% - 20px);
-            }
-        }
 
-        @media (max-width: 480px) {
-            header .logo {
-                font-size: 1.2em;
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
             }
-            #banner h1 {
-                font-size: 2em;
+
+            nav ul li {
+                margin: 10px 0;
             }
-            section h2 {
-                font-size: 1.8em;
+
+            .hero-content h1 {
+                font-size: 3em;
             }
-            .gallery-item {
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .footer-section {
                 flex: 0 0 100%;
-                max-width: 100%;
+                margin-right: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header id="header">
-        <div class="container">
-            <h1 class="logo">HARI DARSH SCHOOL AND JUNIOR COLLEGE</h1>
+        <div class="container header-content">
+            <a href="#" class="logo">HARI DARSH</a>
             <nav>
                 <ul>
-                    <li><a href="#banner">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#academics">Academics</a></li>
-                    <li><a href="#admissions">Admissions</a></li>
-                    <li><a href="#news">News & Events</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Banner Section -->
-    <section id="banner">
-        <div class="container">
-            <h1>Welcome to HARI DARSH SCHOOL AND JUNIOR COLLEGE</h1>
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Innovate. Learn. Succeed.</h1>
+            <p>Empowering minds for a brighter future</p>
+            <a href="#contact" class="cta-button">Join Us Today</a>
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section id="quote">
-        <div class="container">
-            <div id="quote-container">
-                <p id="daily-quote">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
     <section id="about">
         <div class="container">
-            <h2>About Us</h2>
-            <p>HARI DARSH SCHOOL AND JUNIOR COLLEGE is a leading educational institution committed to providing high-quality education to students from diverse backgrounds. With a team of dedicated educators and state-of-the-art facilities, we strive to nurture the intellectual, emotional, and social growth of our students.</p>
-            <a href="#contact" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </section>
-
-    <!-- Academics Section -->
-    <section id="academics">
-        <div class="container">
-            <h2>Academics</h2>
-            <p>Our academic programs are designed to challenge students intellectually while fostering a love for learning. From rigorous coursework to hands-on learning experiences, we aim to equip students with the skills and knowledge they need to succeed in an ever-changing world.</p>
-            <a href="#admissions" class="btn">Explore Programs <i class="fas fa-graduation-cap"></i></a>
-        </div>
-    </section>
-
-    <!-- Admissions Section -->
-    <section id="admissions">
-        <div class="container">
-            <h2>Admissions</h2>
-            <p>Admissions at HARI DARSH SCHOOL AND JUNIOR COLLEGE are competitive yet inclusive. We welcome students from diverse backgrounds who demonstrate a passion for learning and a commitment to personal growth. To learn more about our admissions process and requirements, please contact our admissions office.</p>
-            <a href="#contact" class="btn">Apply Now <i class="fas fa-user-plus"></i></a>
-        </div>
-    </section>
-
-    <!-- News & Events Section -->
-    <section id="news">
-        <div class="container">
-            <h2>News & Events</h2>
-            <p>Stay up-to-date with the latest news and events at HARI DARSH SCHOOL AND JUNIOR COLLEGE. From academic achievements to extracurricular activities, there's always something exciting happening on campus. Check back regularly for updates!</p>
-            <a href="#contact" class="btn">See All Events <i class="fas fa-calendar-alt"></i></a>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <h2>Our Gallery</h2>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="School Building">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <p>At HARI DARSH SCHOOL, we believe in nurturing not just students, but future leaders, innovators, and change-makers. Our cutting-edge curriculum and state-of-the-art facilities create an environment where creativity thrives and excellence is achieved.</p>
+                    <p>We are committed to providing a holistic education that balances academic rigor with personal growth, preparing our students to face the challenges of tomorrow with confidence and compassion.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Students in Classroom">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Sports Event">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Science Lab">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Library">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Cultural Program">
+                <div class="about-image animate-on-scroll">
+                    <img src="/api/placeholder/600/400" alt="HARI DARSH SCHOOL Campus">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Us Section -->
+    <section id="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card animate-on-scroll">
+                    <img src="/api/placeholder/400/300" alt="Primary Education">
+                    <div class="program-card-content">
+                        <h3>Primary Education</h3>
+                        <p>Building a strong foundation for lifelong learning through our comprehensive primary education program.</p>
+                    </div>
+                </div>
+                <div class="program-card animate-on-scroll">
+                    <img src="/api/placeholder/400/300" alt="Secondary Education">
+                    <div class="program-card-content">
+                        <h3>Secondary Education</h3>
+                        <p>Challenging and inspiring students to excel academically and personally in our rigorous secondary program.</p>
+                    </div>
+                </div>
+                <div class="program-card animate-on-scroll">
+                    <img src="/api/placeholder/400/300" alt="Junior College">
+                    <div class="program-card-content">
+                        <h3>Junior College</h3>
+                        <p>Preparing students for higher education and beyond with specialized streams and expert guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <ul class="events-list">
+                <li class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <span class="day">25</span>
+                        <span class="month">Sep</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Annual Sports Day</h3>
+                        <p>Join us for a day of athletic competitions and school spirit!</p>
+                    </div>
+                </li>
+                <li class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Science Fair</h3>
+                        <p>Witness innovative projects from our budding scientists.</p>
+                    </div>
+                </li>
+                <li class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">Nov</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Parent-Teacher Conference</h3>
+                        <p>An opportunity to discuss your child's progress and future goals.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about HARI DARSH SCHOOL AND JUNIOR COLLEGE? Feel free to reach out to us! Our friendly staff are here to assist you with any inquiries you may have.</p>
-            <a href="mailto:info@haridarshschool.edu" class="btn">Email Us <i class="fas fa-envelope"></i></a>
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form animate-on-scroll">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 HARI DARSH SCHOOL AND JUNIOR COLLEGE. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>123 Education Street, Knowledge City</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@haridarsh.edu</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 HARI DARSH SCHOOL. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Function to update the daily quote
-        function updateQuote() {
-            var quotes = [
-                "Education is the most powerful weapon which you can use to change the world. - Nelson Mandela",
-                "The function of education is to teach one to think intensively and to think critically. Intelligence plus character - that is the goal of true education. - Martin Luther King Jr.",
-                "The beautiful thing about learning is that no one can take it away from you. - B.B. King",
-                "The only source of knowledge is experience. - Albert Einstein",
-                "Education is not preparation for life; education
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animate on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
