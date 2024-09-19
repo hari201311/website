@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HARI DARSH SCHOOL AND JUNIOR COLLEGE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        /* Reset some default styles */
+        /* Reset and global styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
         body, h1, h2, h3, p, ul, li {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
         }
-
-        /* Global styles */
         body {
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
-            margin-top: 120px; /* Adjusted margin-top to make space for the header */
         }
         .container {
             max-width: 1200px;
@@ -35,194 +36,258 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 999;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        header.scrolled {
+            background-color: rgba(48, 63, 159, 0.9);
         }
         header .logo {
             font-size: 2em;
-            margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-align: center;
-        }
-        header nav {
-            text-align: center;
+            margin-bottom: 10px;
         }
         header nav ul {
             list-style-type: none;
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         header nav ul li {
-            display: inline-block;
-            margin-right: 20px;
+            margin: 0 15px;
         }
         header nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             transition: color 0.3s ease;
+            position: relative;
         }
-        header nav ul li a:hover {
-            color: #9575cd;
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        header nav ul li a:hover::after {
+            transform: scaleX(1);
         }
 
         /* Banner Section styles */
         #banner {
-            background-color: #9575cd;
-            padding: 20px 0;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
             text-align: center;
-            margin-top: 80px;
             color: #fff;
+            position: relative;
+        }
+        #banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
         }
         #banner h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* Quote styles */
         #quote-container {
-            margin-top: 20px;
-            overflow: hidden;
-            position: relative;
-            background-color: #ffc107; /* Changed background color */
+            background-color: #ffc107;
             padding: 20px;
             border-radius: 5px;
-            color: #333; /* Changed font color */
-            text-align: left; /* Centering the quote */
-            z-index: 999;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         #quote-container p {
-            font-size: 1.5em; /* Increased font size */
-            margin-bottom: 10px;
-            font-family: 'Arial', sans-serif; /* Changed font family */
-            animation: moveHorizontal 20s linear infinite;
-            animation-delay: 5s;
-            animation-fill-mode: forwards;
+            font-size: 1.3em;
+            font-family: 'Lora', serif;
             font-style: italic;
-        }
-
-        @keyframes moveHorizontal {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Animated scrolling */
-        html {
-            scroll-behavior: smooth;
         }
 
         /* Section styles */
         section {
-            padding: 50px 0;
+            padding: 80px 0;
             border-bottom: 1px solid #ddd;
         }
         section h2 {
             font-size: 2.5em;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-align: center;
-            color: #333;
+            color: #303f9f;
             font-weight: 700;
-            transition: color 0.3s ease;
         }
         section p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-bottom: 20px;
             text-align: center;
             color: #666;
-            transition: color 0.3s ease;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* About Us Section */
         #about {
-            background-color: #64b5f6;
+            background-color: #e8eaf6;
         }
 
         /* Academics Section */
         #academics {
-            background-color: #81c784;
+            background-color: #e8f5e9;
         }
 
         /* Admissions Section */
         #admissions {
-            background-color: #ffb74d;
+            background-color: #fff3e0;
         }
 
         /* News & Events Section */
         #news {
-            background-color: #4db6ac;
+            background-color: #e0f2f1;
         }
 
         /* Contact Us Section */
         #contact {
-            background-color: #90a4ae;
-            color: #fff;
+            background-color: #eceff1;
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background-color: #f3e5f5;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .gallery-item {
+            flex: 0 0 calc(33.333% - 20px);
+            max-width: calc(33.333% - 20px);
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Footer styles */
         footer {
-            background-color: #333;
+            background-color: #303f9f;
             color: #fff;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
         }
         footer p {
-            font-size: 1.2em;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #ffc107;
         }
 
         /* Button styles */
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #303f9f;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-size: 1.2em;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: 2px solid #303f9f;
         }
         .btn:hover {
-            background-color: #1a237e;
+            background-color: transparent;
+            color: #303f9f;
         }
 
-        /* Icon styles */
-        .icon {
-            display: inline-block;
-            margin-right: 5px;
-            vertical-align: middle;
-            transition: transform 0.3s ease;
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header .logo {
+                font-size: 1.5em;
+            }
+            header nav ul li {
+                margin: 5px 10px;
+            }
+            #banner h1 {
+                font-size: 2.5em;
+            }
+            section h2 {
+                font-size: 2em;
+            }
+            .gallery-item {
+                flex: 0 0 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
         }
 
-        /* Animation for icons */
-        .icon:hover {
-            transform: scale(1.2);
+        @media (max-width: 480px) {
+            header .logo {
+                font-size: 1.2em;
+            }
+            #banner h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 1.8em;
+            }
+            .gallery-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Quote Section -->
-    <section id="quote">
-        <div class="container">
-            <div id="quote-container">
-                <p id="daily-quote">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container">
-            <h1 class="logo">HARI DARSH SCHOOL AND JUNIOR COLLEGE </h1>
+            <h1 class="logo">HARI DARSH SCHOOL AND JUNIOR COLLEGE</h1>
             <nav>
                 <ul>
                     <li><a href="#banner">Home</a></li>
@@ -230,6 +295,7 @@
                     <li><a href="#academics">Academics</a></li>
                     <li><a href="#admissions">Admissions</a></li>
                     <li><a href="#news">News & Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </nav>
@@ -239,7 +305,16 @@
     <!-- Banner Section -->
     <section id="banner">
         <div class="container">
-            <h1>Welcome to HARI DARSH SCHOOL AND JUNIOR COLLEGE </h1>
+            <h1>Welcome to HARI DARSH SCHOOL AND JUNIOR COLLEGE</h1>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote">
+        <div class="container">
+            <div id="quote-container">
+                <p id="daily-quote">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X</p>
+            </div>
         </div>
     </section>
 
@@ -247,8 +322,8 @@
     <section id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>HARI DARSH SCHOOL AND JUNIOR COLLEGE  is a leading educational institution committed to providing high-quality education to students from diverse backgrounds. With a team of dedicated educators and state-of-the-art facilities, we strive to nurture the intellectual, emotional, and social growth of our students.</p>
-            <a href="#contact" class="btn">Learn More <span class="icon">&rarr;</span></a>
+            <p>HARI DARSH SCHOOL AND JUNIOR COLLEGE is a leading educational institution committed to providing high-quality education to students from diverse backgrounds. With a team of dedicated educators and state-of-the-art facilities, we strive to nurture the intellectual, emotional, and social growth of our students.</p>
+            <a href="#contact" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -256,8 +331,8 @@
     <section id="academics">
         <div class="container">
             <h2>Academics</h2>
-            <p>Our academic programs are designed to challenge students academically while fostering a love for learning. From rigorous coursework to hands-on learning experiences, we aim to equip students with the skills and knowledge they need to succeed in an ever-changing world.</p>
-            <a href="#admissions" class="btn">Explore Programs <span class="icon">&rarr;</span></a>
+            <p>Our academic programs are designed to challenge students intellectually while fostering a love for learning. From rigorous coursework to hands-on learning experiences, we aim to equip students with the skills and knowledge they need to succeed in an ever-changing world.</p>
+            <a href="#admissions" class="btn">Explore Programs <i class="fas fa-graduation-cap"></i></a>
         </div>
     </section>
 
@@ -265,8 +340,8 @@
     <section id="admissions">
         <div class="container">
             <h2>Admissions</h2>
-            <p>Admissions at HARI DARSH SCHOOL AND JUNIOR COLLEGE  are competitive yet inclusive. We welcome students from diverse backgrounds who demonstrate a passion for learning and a commitment to personal growth. To learn more about our admissions process and requirements, please contact our admissions office.</p>
-            <a href="#contact" class="btn">Apply Now <span class="icon">&rarr;</span></a>
+            <p>Admissions at HARI DARSH SCHOOL AND JUNIOR COLLEGE are competitive yet inclusive. We welcome students from diverse backgrounds who demonstrate a passion for learning and a commitment to personal growth. To learn more about our admissions process and requirements, please contact our admissions office.</p>
+            <a href="#contact" class="btn">Apply Now <i class="fas fa-user-plus"></i></a>
         </div>
     </section>
 
@@ -274,8 +349,35 @@
     <section id="news">
         <div class="container">
             <h2>News & Events</h2>
-            <p>Stay up-to-date with the latest news and events at HARI DARSH SCHOOL AND JUNIOR COLLEGE . From academic achievements to extracurricular activities, there's always something exciting happening on campus. Check back regularly for updates!</p>
-            <a href="#contact" class="btn">See All Events <span class="icon">&rarr;</span></a>
+            <p>Stay up-to-date with the latest news and events at HARI DARSH SCHOOL AND JUNIOR COLLEGE. From academic achievements to extracurricular activities, there's always something exciting happening on campus. Check back regularly for updates!</p>
+            <a href="#contact" class="btn">See All Events <i class="fas fa-calendar-alt"></i></a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Our Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="School Building">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Students in Classroom">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Sports Event">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Science Lab">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Library">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Cultural Program">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -283,46 +385,30 @@
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Have questions or want to learn more about HARI DARSH SCHOOL AND JUNIOR COLLEGE ? Feel free to reach out to us! Our friendly staff are here to assist you with any inquiries you may have.</p>
+            <p>Have questions or want to learn more about HARI DARSH SCHOOL AND JUNIOR COLLEGE? Feel free to reach out to us! Our friendly staff are here to assist you with any inquiries you may have.</p>
+            <a href="mailto:info@haridarshschool.edu" class="btn">Email Us <i class="fas fa-envelope"></i></a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 HARI DARSH SCHOOL AND JUNIOR COLLEGE </p>
-            <!-- Add social media links here -->
+            <p>&copy; 2024 HARI DARSH SCHOOL AND JUNIOR COLLEGE. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript for updating daily quote -->
     <script>
-        // Function to update the daily quote (replace with your logic)
+        // Function to update the daily quote
         function updateQuote() {
-            // Array of daily quotes
             var quotes = [
                 "Education is the most powerful weapon which you can use to change the world. - Nelson Mandela",
                 "The function of education is to teach one to think intensively and to think critically. Intelligence plus character - that is the goal of true education. - Martin Luther King Jr.",
                 "The beautiful thing about learning is that no one can take it away from you. - B.B. King",
                 "The only source of knowledge is experience. - Albert Einstein",
-                "Education is not preparation for life; education is life itself. - John Dewey",
-                "The mind is not a vessel to be filled, but a fire to be kindled. - Plutarch",
-                "Learning never exhausts the mind. - Leonardo da Vinci",
-                "Education is the key to unlocking the world, a passport to freedom. - Oprah Winfrey",
-                "The beautiful thing about learning is nobody can take it away from you. - B.B. King",
-                "Education is the passport to the future, for tomorrow belongs to those who prepare for it today. - Malcolm X"
-                // Add more quotes here
-            ];
-
-            // Get a random quote from the array
-            var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-            // Update the quote element with the new quote
-            document.getElementById('daily-quote').textContent = randomQuote;
-        }
-
-        // Call the updateQuote function on page load
-        window.onload = updateQuote;
-    </script>
-</body>
-</html>
+                "Education is not preparation for life; education
