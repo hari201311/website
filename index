@@ -614,36 +614,36 @@
 
     <section id="events">
         <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
+            <h2 class="section-title">Upcoming Events (NO EVENTS RIGHT NOW WILL BE UPDATED WHEN THERE IS THANKYOU.</h2>
             <ul class="events-list">
                 <li class="event-item animate-on-scroll">
                     <div class="event-date">
-                        <span class="day">25</span>
-                        <span class="month">Sep</span>
+                        <span class="day">No</span>
+                        <span class="month">Upcoming events</span>
                     </div>
                     <div class="event-details">
-                        <h3>Annual Sports Day</h3>
-                        <p>Join us for a day of athletic competitions and school spirit!</p>
+                        <h3>NA</h3>
+                        <p>NIL</p>
                     </div>
                 </li>
                 <li class="event-item animate-on-scroll">
                     <div class="event-date">
-                        <span class="day">15</span>
-                        <span class="month">Oct</span>
+                        <span class="day">No</span>
+                        <span class="month">Events</span>
                     </div>
                     <div class="event-details">
-                        <h3>Science Fair</h3>
-                        <p>Witness innovative projects from our budding scientists.</p>
+                        <h3></h3>
+                        <p></p>
                     </div>
                 </li>
                 <li class="event-item animate-on-scroll">
                     <div class="event-date">
-                        <span class="day">05</span>
-                        <span class="month">Nov</span>
+                        <span class="day"></span>
+                        <span class="month"></span>
                     </div>
                     <div class="event-details">
-                        <h3>Parent-Teacher Conference</h3>
-                        <p>An opportunity to discuss your child's progress and future goals.</p>
+                        <h3></h3>
+                        <p></p>
                     </div>
                 </li>
             </ul>
